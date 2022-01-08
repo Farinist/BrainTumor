@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Brain Tumor Detection</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="static/css/styles.css" rel="stylesheet" />
+        <!-- <link href="static" rel="stylesheet" /> -->
+        <link href="static/js/script.js" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand", href="#page-top">Brain Tumor</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Info</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Prediksi</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Tutorial</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Brain Tumor Detection</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Website yang memprediksi 3 macam tumor otak</p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Info</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <img class="img-fluid" src="static/glioma.jpg" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <img class="img-fluid" src="static/meningioma.jpg" alt="..." />
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                            <img class="img-fluid" src="static/pituitary.jpg" alt="..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Prediksi</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <!-- <div class="divider-custom-line"></div> -->
+                    <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                    <!-- <div class="divider-custom-line"></div> -->
+                </div>
+            
+                <body>
+                    <h1 class='text-center'>Brain Tumor Detection</h1>
+            
+                    <form class="p-3 text-center" action='/submit', method="post" enctype="multipart/form-data">
+                        <input class="form-control" type="file" name="imagefile">
+                        <input class="btn btn-primary mt-3" type="submit" value="Predict image">
+                    </form>
+                    {% if prediction %}
+                        <img src="{{image}}" class="rounded mx-auto d-block" height="300px" width="300px" alt="Gambar Chest X-Ray"><br>
+                        <p class="text-center"> Hasil prediksi ini menunjukkan <b>{{prediction}}</b></p>
+                    {% endif %}
+                </body>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Tutorial</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <!-- <div class="divider-custom-line"></div> -->
+                    <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                    <!-- <div class="divider-custom-line"></div> -->
+                </div>
+                <p class="mb-4 text-center">Klik tombol "Choose File" kemudian klik "Predict" untuk mengetahui hasil prediksi tumor otak </p>
+            </div>
+        </section>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Farin  Istighfarizky</small></div>
+        </div>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tumor Otak Glioma</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                        <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="static/glioma.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Glioma adalah jenis tumor primer otak paling banyak. Tumor ini bisa terjadi pada segala usia dan mengenai otak maupun sumsum tulang belakang. Terdapat tiga jenis glioma : astrositoma, oligodendroglioma dan ependimoma. Berdasarkan jenis keganasan sel tumornya, astrositoma dibedakan menjadi low grade sampai high grade. Jenis paling ganas adalah glioblastome multiforme yang biasanya tumbuh sangat cepat, sangat invasif dan prognosisnya kurang baik. Untuk tumor jenis low grade (grade 1, grade 2 dan pilositik astrositoma) biasanya tumbuhnya lambat dan prognosisnya lebih baik.
+
+                                        Gejala klinis tumor ini sangat bervariasi, diantaranya nyeri kepala, kejang, kelemahan anggota gerak, perubahan sifat sampai kesadaran menurun. Diagnosis ditegakkan berdasarkan MRI kepala dengan atau tanpa kontras dan bila perlu dengan MR spektroskopi. Tetapi diagnosis pasti tetap harus ditegakkan berdasarkan hasil pemeriksaan patologi spesimen yang diambil saat pembedahan atau biopsi.
+                                        
+                                        Karena tumor jenis ini tumbuhnya infiltratif dan batasnya tidak tegas maka operasi biasanya tidak bisa mengangkat tumor secara total. Sehingga selain modalitas pembedahan, radioterapi dan kemoterapi sering digunakan paska operasi untuk menghancurkan sisa tumor yang tidak terambil. Di rumah sakit Mitra Keluarga, standar penanganan jenis tumor ganas seperti gliobastome multiforme adalah operasi debulking tumor, radioterapi dan temozolamide kemoterapi. Selain itu bisa dipertimbangkan penanaman obat kemoterapi di otak saat operasi, sehingga efek obat kemoterapi bisa bersifat lokal di otak dan tidak ada efek samping secara sistemik.</p>
+                                    <!-- <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tumor Otak Meningioma</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                        <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="static/meningioma.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Meningioma adalah jenis tumor otak yang terjadi di meninges, yaitu lapisan jaringan yang mengelilingi bagian luar otak dan sumsum tulang belakang. Jenis tumor ini dapat bermula di bagian otak manapun, tetapi umumnya di otak besar dan otak kecil.
+                                        Penyakit meningioma merupakan tumor otak primer yang paling umum terjadi pada orang dewasa, terutama berjenis kelamin perempuan. Sebagian besar kasus tumor meningioma bersifat jinak atau berada di level rendah (I). Namun, penyakit ini bisa tumbuh dan berkembang secara cepat hingga mencapai level III atau menyebar ke wajah dan tulang belakang
+                                        Tumor meningioma dapat menimbulkan berbagai gejala, seperti mual dan muntah, kejang, sakit kepala, perubahan perilaku dan kognitif, hingga gangguan penglihatan. Adapun pengobatan penyakit tumor meningioma adalah operasi atau radioterapi. Bila bersifat jinak atau berada di level rendah, pengobatan umumnya belum dibutuhkan, tetapi dokter tetap akan melakukan pengawasan dengan rutin tes MRI.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tumor Otak Pituitari</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                        <div class="divider-custom-icon"><i class="fas fa-brain"></i></div>
+                                        <!-- <div class="divider-custom-line"></div> -->
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="static/pituitary.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Tumor hipofisis atau yang Anda kenal juga dengan sebutan adenoma pituitari (pituitary adenoma) adalah adanya sel abnormal yang membentuk massa pada kelenjar pituituari (hipofisis) di otak. Kelenjar ini bertanggung jawab untuk mengatur keseimbangan berbagai hormon pada tubuh Anda.
+                                        Adanya tumor pada kelenjar hipofisis membuat produksi hormon menjadi lebih banyak atau sebaliknya, menjadi lebih sedikit. Pada kebanyakan kasus, tumor pada kelenjar pituitari bersifat nonkanker atau tumor jinak. Itu artinya, tumor tidak menyebar ke bagian lain dan hanya berada pada kelenjar saja.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
